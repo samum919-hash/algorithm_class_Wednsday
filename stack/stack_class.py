@@ -53,7 +53,7 @@ def Reverse_string(statement):
     print("\n[2] POP 단계 -----------")
     out = []
     while not st.is_empty():
-        reuslt.append(st.pop())
+        result.append(st.pop())
     
     result = ''.join(out)
     
