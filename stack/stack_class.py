@@ -17,7 +17,7 @@ class ArrayStack :
     def push(self, item):
         if not self.is_full():
             self.array[++self.top] = item
-            print("PUSH : {item!r} -> stack = {self.array[:self.top + 1]}")
+            print(f"PUSH: {item!r} -> stack = {self.array[:self.top + 1]}")
         else:
             # print("Stack Overflow")
             # exit()
@@ -28,7 +28,7 @@ class ArrayStack :
             item = self.array[self.top]
             self.array[self.top] = None
             --self.top
-            print("POP : {item!r} -> stack = {self.array[:self.top + 1]}")
+            print(f"POP : {item!r} -> stack = {self.array[:self.top + 1]}")
             return item
         else:
             raise IndexError("Stack Underflow")
@@ -48,12 +48,12 @@ def Reverse_string(statement):
     print("\n[1] PUSH 단계 -----------")
     st = ArrayStack(len(statement))
     for ch in statement:
-        st.pop(ch)
+        st.push(ch)
     
     print("\n[2] POP 단계 -----------")
     out = []
     while not st.is_empty():
-        result.append(st.pop())
+        out.append(st.pop())
     
     result = ''.join(out)
     
@@ -67,5 +67,9 @@ def test_reverse():
     tests = ["기러기", "Hellow I'm Stack", "012345"]
     
     for i in tests:
-        Reverse_string(tests[i])
+        got = Reverse_string(i)
+
+
+if __name__ == "__main__":
+    test_reverse()
     
