@@ -16,7 +16,8 @@ class ArrayStack :
     
     def push(self, item):
         if not self.is_full():
-            self.array[++self.top] = item
+            self.top += 1
+            self.array[self.top] = item
             print(f"PUSH: {item!r} -> stack = {self.array[:self.top + 1]}")
         else:
             # print("Stack Overflow")
@@ -27,7 +28,7 @@ class ArrayStack :
         if not self.is_empty():
             item = self.array[self.top]
             self.array[self.top] = None
-            --self.top
+            self.top -= 1
             print(f"POP : {item!r} -> stack = {self.array[:self.top + 1]}")
             return item
         else:
@@ -72,4 +73,5 @@ def test_reverse():
 
 if __name__ == "__main__":
     test_reverse()
-    
+
+
